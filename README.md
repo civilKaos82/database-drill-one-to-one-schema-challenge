@@ -1,4 +1,4 @@
-# Database Drill One To One Schema 
+# Schema Design: One-to-one Schema 
  
 ##Learning Competencies 
 
