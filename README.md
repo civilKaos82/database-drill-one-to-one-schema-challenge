@@ -1,10 +1,4 @@
 # Schema Design: One-to-one Schema 
- 
-##Learning Competencies 
-
-* Design database schema from problem data
-* Model relationships in a relational database (one-to-one, one-to-many, many-to-many)
-
 
 ##Summary 
 
