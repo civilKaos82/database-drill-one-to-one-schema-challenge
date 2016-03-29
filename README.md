@@ -24,12 +24,13 @@ In this example, the `users` table itself could include the Facebook-related fie
 
 ###Release 0 : Design the schema
 
-Use [SQL Designer](https://socrates.devbootcamp.com/sql.html) to create your schema.  Model the relationship between the <code>users</code> and <code>facebook&#95;accounts</code>.
+Use [Schema Designer][] to create your schema.  Model the relationship between the <code>users</code> and <code>facebook&#95;accounts</code>.
 
 When you are done, take a screenshot of your schema, commit it, and issue a pull request.
 
 ##Resources
 
-* [SQL Designer](https://socrates.devbootcamp.com/sql.html)
+* [Schema Designer](http://schemadesigner.devbootcamp.com/)
 
 [one-to-many schema design challenge]: ../../../../database-drill-one-to-many-schema-challenge
+[Schema Designer]: http://schemadesigner.devbootcamp.com/
