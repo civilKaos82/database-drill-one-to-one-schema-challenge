@@ -10,13 +10,19 @@ class Sidekick
   end
 
   def superhero=(new_superhero)
-    unless superhero == new_superhero
-      # Break association with old superhero
-      superhero.sidekick = nil if superhero
+    return if superhero == new_superhero
 
-      # Make association with new superhero
-      @superhero = new_superhero
-      superhero.sidekick = self
-    end
+    break_association_with_superhero
+    @superhero = new_superhero
+    associate_self_with_superhero
+  end
+
+  private
+  def associate_self_with_superhero
+    superhero.sidekick = self if superhero
+  end
+
+  def break_association_with_superhero
+    superhero.sidekick = nil if superhero
   end
 end

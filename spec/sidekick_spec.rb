@@ -76,6 +76,17 @@ describe Sidekick do
           sidekick.superhero = old_superhero
         end
       end
+
+      describe "removing a superhero" do
+        it "sets the superhero to nil" do
+          expect { sidekick.superhero = nil }.to change { sidekick.superhero }.to(nil)
+        end
+
+        it "tells the old super hero that it is no longer its sidekick" do
+          expect(old_superhero).to receive(:sidekick=).with(nil)
+          sidekick.superhero = nil
+        end
+      end
     end
   end
 end
