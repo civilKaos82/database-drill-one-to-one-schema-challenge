@@ -7,6 +7,7 @@ class Sidekick
     @loyalty = args[:loyalty]
     @resourcefulness = args[:resourcefulness]
     @humor = args[:humor]
+    @superhero = args[:superhero]
   end
 
   def superhero=(new_superhero)
