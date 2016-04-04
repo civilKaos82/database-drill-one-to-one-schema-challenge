@@ -2,12 +2,12 @@ class Sidekick
   attr_reader :name, :alter_ego, :resourcefulness, :loyalty, :humor, :superhero
 
   def initialize(args ={})
-    @name = args[:name]
-    @alter_ego = args[:alter_ego]
-    @loyalty = args[:loyalty]
-    @resourcefulness = args[:resourcefulness]
-    @humor = args[:humor]
-    @superhero = args[:superhero]
+    self.name = args[:name]
+    self.alter_ego = args[:alter_ego]
+    self.loyalty = args[:loyalty]
+    self.resourcefulness = args[:resourcefulness]
+    self.humor = args[:humor]
+    self.superhero = args[:superhero]
   end
 
   def superhero=(new_superhero)
@@ -19,6 +19,8 @@ class Sidekick
   end
 
   private
+  attr_writer :name, :alter_ego, :resourcefulness, :loyalty, :humor
+
   def associate_self_with_superhero
     superhero.sidekick = self if superhero
   end

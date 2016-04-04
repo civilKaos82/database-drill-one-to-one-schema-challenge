@@ -2,15 +2,15 @@ class Superhero
   attr_reader :name, :alter_ego, :intelligence, :strength, :speed, :durability, :power, :combat, :sidekick
 
   def initialize(args = {})
-    @name = args[:name]
-    @alter_ego = args[:alter_ego]
-    @intelligence = args[:intelligence]
-    @strength = args[:strength]
-    @speed = args[:speed]
-    @durability = args[:durability]
-    @power = args[:power]
-    @combat = args[:combat]
-    @sidekick = args[:sidekick]
+    self.name = args[:name]
+    self.alter_ego = args[:alter_ego]
+    self.intelligence = args[:intelligence]
+    self.strength = args[:strength]
+    self.speed = args[:speed]
+    self.durability = args[:durability]
+    self.power = args[:power]
+    self.combat = args[:combat]
+    self.sidekick = args[:sidekick]
   end
 
   def sidekick=(new_sidekick)
@@ -22,6 +22,8 @@ class Superhero
   end
 
   private
+  attr_writer :name, :alter_ego, :intelligence, :strength, :speed, :durability, :power, :combat
+
   def associate_self_with_sidekick
     sidekick.superhero = self if sidekick
   end
