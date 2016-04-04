@@ -10,8 +10,11 @@ describe Superhero do
       :speed        => 78,
       :durability   => 75,
       :power        => 75,
-      :combat       => 93 }
+      :combat       => 93,
+      :sidekick     => bat_girl }
   end
+
+  let(:bat_girl) { double("sidekick", :superhero= => nil) }
 
   it "has a name" do
     expect(hero.name).to eq "Batwoman"
@@ -45,10 +48,14 @@ describe Superhero do
     expect(hero.combat).to eq 93
   end
 
-  describe "having a sidekick" do
-    let(:bat_girl) { double("sidekick", :superhero= => nil) }
+  it "has a sidekick" do
+    expect(hero.sidekick).to eq bat_girl
+  end
 
+  describe "having a sidekick" do
     context "when the hero does not already have a sidekick" do
+      let(:hero) { Superhero.new }
+
       it "can be given a sidekick" do
         expect { hero.sidekick = bat_girl }.to change { hero.sidekick }.to(bat_girl)
       end
@@ -60,11 +67,8 @@ describe Superhero do
     end
 
     context "when the hero already has a sidekick" do
+      let(:hero) { Superhero.new(sidekick: old_sidekick) }
       let(:old_sidekick) { double("sidekick", :superhero= => nil) }
-
-      before(:each) do
-        hero.sidekick = old_sidekick
-      end
 
       it "can be given a new sidekick" do
         expect { hero.sidekick = bat_girl }.to change { hero.sidekick }.to(bat_girl)

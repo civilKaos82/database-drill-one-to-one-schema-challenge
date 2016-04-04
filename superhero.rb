@@ -10,6 +10,7 @@ class Superhero
     @durability = args[:durability]
     @power = args[:power]
     @combat = args[:combat]
+    @sidekick = args[:sidekick]
   end
 
   def sidekick=(new_sidekick)
