@@ -27,6 +27,9 @@ Design a database schema to support the provided `Superhero` and `Sidekick` Ruby
 When the schema is complete, take a screenshot, commit it, and submit the challenge.
 
 
+## Conclusion
+In terms of schema design, one-to-one and one-to-many relationships look the same: each links a primary key from one table to the foreign key of another table.  The differences appear in our models.  In this challenge, we have a one-to-one relationship between superheroes and sidekicks.  A superhero has one sidekick, and a sidekick belongs to one superhero.
+
 
 [one-to-many schema design challenge]: ../../../../database-drill-one-to-many-schema-challenge
 [Schema Designer]: http://schemadesigner.devbootcamp.com/
