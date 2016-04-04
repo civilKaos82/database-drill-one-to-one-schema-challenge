@@ -20,13 +20,12 @@ In this example, the `users` table itself could include the Facebook-related fie
 *Note:* In the schema designer, a one-to-one relationship looks just like a one-to-many relationship.  The difference occurs in the models and in possible constraints placed on the database tables.
 
 
-##Releases
+## Releases
+### Release 0: Design a Schema for Superheroes and Sidekicks
+Design a database schema to support the provided `Superhero` and `Sidekick` Ruby classes.  Use [Schema Designer][] to design tables with all of the necessary fields for each class's attributes.  Pick a [data type](http://www.w3schools.com/sql/sql_datatypes_general.asp) for each field (e.g., integer, varchar, date, etc.).  Ensure that *id* and timestamp fields are included.  Remember to model the relationship between the two classes.
 
-###Release 0 : Design the schema
+When the schema is complete, take a screenshot, commit it, and submit the challenge.
 
-Use [Schema Designer][] to create your schema.  Model the relationship between the <code>users</code> and <code>facebook&#95;accounts</code>.
-
-When you are done, take a screenshot of your schema, commit it, and issue a pull request.
 
 ##Resources
 
