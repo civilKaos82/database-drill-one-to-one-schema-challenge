@@ -27,9 +27,6 @@ Design a database schema to support the provided `Superhero` and `Sidekick` Ruby
 When the schema is complete, take a screenshot, commit it, and submit the challenge.
 
 
-##Resources
-
-* [Schema Designer](http://schemadesigner.devbootcamp.com/)
 
 [one-to-many schema design challenge]: ../../../../database-drill-one-to-many-schema-challenge
 [Schema Designer]: http://schemadesigner.devbootcamp.com/
