@@ -16,19 +16,21 @@ class Superhero
   def sidekick=(new_sidekick)
     return if sidekick == new_sidekick
 
-    break_association_with_sidekick
+    old_sidekick = sidekick
     @sidekick = new_sidekick
-    associate_self_with_sidekick
+
+    break_association_with(old_sidekick)
+    make_self_superhero_of(new_sidekick)
   end
 
   private
   attr_writer :name, :alter_ego, :intelligence, :strength, :speed, :durability, :power, :combat
 
-  def associate_self_with_sidekick
-    sidekick.superhero = self if sidekick
+  def make_self_superhero_of(some_sidekick)
+    some_sidekick.superhero = self if some_sidekick
   end
 
-  def break_association_with_sidekick
-    sidekick.superhero = nil if sidekick
+  def break_association_with(some_sidekick)
+    some_sidekick.superhero = nil if some_sidekick
   end
 end
