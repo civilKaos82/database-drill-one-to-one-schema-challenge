@@ -90,6 +90,9 @@ describe Superhero do
         end
 
         it "does not tell the old sidekick that it is its superhero" do
+          # Execute the let block to set up the superhero object
+          hero
+
           expect(old_sidekick).to_not receive(:superhero=)
           hero.sidekick = old_sidekick
         end
