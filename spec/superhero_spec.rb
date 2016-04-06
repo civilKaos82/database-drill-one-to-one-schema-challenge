@@ -2,6 +2,8 @@ require_relative "../superhero"
 
 describe Superhero do
   let(:hero) { Superhero.new(hero_data) }
+  let(:bat_girl) { double("sidekick") }
+
   let(:hero_data) do
     { :name         => "Batwoman",
       :alter_ego    => "Katherine Kane",
@@ -14,100 +16,41 @@ describe Superhero do
       :sidekick     => bat_girl }
   end
 
-  let(:bat_girl) { double("sidekick", :superhero= => nil) }
 
-  it "has a name" do
-    expect(hero.name).to eq "Batwoman"
+  it "has a readable/writable name" do
+    expect { hero.name = "Wonder Woman" }.to change { hero.name }.from("Batwoman").to("Wonder Woman")
   end
 
-  it "has an alter ego" do
-    expect(hero.alter_ego).to eq "Katherine Kane"
+  it "has a readable/writable alter ego" do
+    expect { hero.alter_ego = "Diana Prince" }.to change { hero.alter_ego }.from("Katherine Kane").to("Diana Prince")
   end
 
-  it "has an intelligence rating" do
-    expect(hero.intelligence).to eq 93
+  it "has a readable/writable intelligence rating" do
+    expect { hero.intelligence = 88 }.to change { hero.intelligence }.from(93).to(88)
   end
 
-  it "has a strength rating" do
-    expect(hero.strength).to eq 62
+  it "has a readable/writable strength rating" do
+    expect { hero.strength = 100 }.to change { hero.strength }.from(62).to(100)
   end
 
-  it "has a speed rating" do
-    expect(hero.speed).to eq 78
+  it "has a readable/writable speed rating" do
+    expect { hero.speed = 75 }.to change { hero.speed }.from(78).to(75)
   end
 
-  it "has a durability rating" do
-    expect(hero.durability).to eq 75
+  it "has a readable/writable durability rating" do
+    expect { hero.durability = 100 }.to change { hero.durability }.from(75).to(100)
   end
 
-  it "has a power rating" do
-    expect(hero.power).to eq 75
+  it "has a readable/writable power rating" do
+    expect { hero.power = 97 }.to change { hero.power }.from(75).to(97)
   end
 
-  it "has a combat rating" do
-    expect(hero.combat).to eq 93
+  it "has a readable/writable combat rating" do
+    expect { hero.combat = 100 }.to change { hero.combat }.from(93).to(100)
   end
 
-  it "has a sidekick" do
-    expect(hero.sidekick).to eq bat_girl
-  end
-
-  describe "having a sidekick" do
-    context "when the hero does not already have a sidekick" do
-      let(:hero) { Superhero.new }
-
-      it "can be given a sidekick" do
-        expect { hero.sidekick = bat_girl }.to change { hero.sidekick }.to(bat_girl)
-      end
-
-      it "tells the sidekick that it is now the sidekick's superhero" do
-        expect(bat_girl).to receive(:superhero=).with(hero)
-        hero.sidekick = bat_girl
-      end
-    end
-
-    context "when the hero already has a sidekick" do
-      let(:hero) { Superhero.new(sidekick: old_sidekick) }
-      let(:old_sidekick) { double("sidekick", :superhero= => nil) }
-
-      it "can be given a new sidekick" do
-        expect { hero.sidekick = bat_girl }.to change { hero.sidekick }.to(bat_girl)
-      end
-
-      it "tells the old sidekick that it is no longer the sidekick's superhero" do
-        expect(old_sidekick).to receive(:superhero=).with(nil)
-        hero.sidekick = bat_girl
-      end
-
-      it "tells the new sidekick that it is now the sidekick's superhero" do
-        expect(bat_girl).to receive(:superhero=).with(hero)
-        hero.sidekick = bat_girl
-      end
-
-      context "when the new sidekick is the old sidekick" do
-        it "does not change the sidekick" do
-          expect { hero.sidekick = old_sidekick }.to_not change { hero.sidekick }
-        end
-
-        it "does not tell the old sidekick that it is its superhero" do
-          # Execute the let block to set up the superhero object
-          hero
-
-          expect(old_sidekick).to_not receive(:superhero=)
-          hero.sidekick = old_sidekick
-        end
-      end
-
-      describe "removing a sidekick" do
-        it "sets the sidekick to nil" do
-          expect { hero.sidekick = nil }.to change { hero.sidekick }.to(nil)
-        end
-
-        it "tells the old sidekick that it is no longer its superhero" do
-          expect(old_sidekick).to receive(:superhero=).with(nil)
-          hero.sidekick = nil
-        end
-      end
-    end
+  it "has a readable/writable sidekick" do
+    wonder_girl = double("sidekick")
+    expect { hero.sidekick = wonder_girl }.to change { hero.sidekick }.from(bat_girl).to(wonder_girl)
   end
 end
