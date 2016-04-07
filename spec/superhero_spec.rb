@@ -1,8 +1,9 @@
 require_relative "../superhero"
+require_relative "../sidekick"
 
 describe Superhero do
   let(:hero) { Superhero.new(hero_data) }
-  let(:bat_girl) { double("sidekick") }
+  let(:bat_girl) { Sidekick.new }
 
   let(:hero_data) do
     { :name         => "Batwoman",
@@ -50,7 +51,7 @@ describe Superhero do
   end
 
   it "has a readable/writable sidekick" do
-    wonder_girl = double("sidekick")
+    wonder_girl = Sidekick.new
     expect { hero.sidekick = wonder_girl }.to change { hero.sidekick }.from(bat_girl).to(wonder_girl)
   end
 end
